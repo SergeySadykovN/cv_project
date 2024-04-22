@@ -15,11 +15,16 @@ while True:
     for (x, y, w, h) in faces:
         r_gray = gray[y:y + h, x:x + w]
         r_color = img[y:y + h, x:x + w]
-        eyes = find_eyes.detectMultiScale(r_gray, scaleFactor=2, minNeighbors=3)
+        eyes = find_eyes.detectMultiScale(r_gray, scaleFactor=5, minNeighbors=3)
+        # if len(eyes) >= 2:
+        #     ex1, ey1, ew1, eh1 = eyes[0]
+        #     ex2, ey2, ew2, eh2 = eyes[1]
+
         cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), thickness=2)
 
         for (ex, ey, ew, eh) in eyes:
-            cv2.rectangle(r_color, (ex, ey), (ex + ew, ey + eh), (0,255,0), 2)
+            eyes = cv2.rectangle(r_color, (ex, ey), (ex + ew//2, ey + eh//2), (0, 255, 0), thickness=1)
+            # cut_eyes = eyes
 
     cv2.imshow('Result', img)
 
