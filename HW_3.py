@@ -3,7 +3,8 @@ import numpy as np
 
 
 
-capture = cv2.VideoCapture('videos/to_river.mp4')
+# capture = cv2.VideoCapture('videos/to_river.mp4')
+capture = cv2.VideoCapture(0)
 find_face = cv2.CascadeClassifier('model_face.xml')
 find_eyes = cv2.CascadeClassifier('eyes.xml')
 
