@@ -9,7 +9,7 @@ new_image = np.zeros(img.shape, dtype='uint8')
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 # маска
 mask = cv2.inRange(hsv, (0, 0, 0), (255, 255, 255))
-img = cv2.bitwise_and(img, img, mask)
+img = cv2.bitwise_not(img, img, mask)
 # print(mask)
 img = cv2.GaussianBlur(img, (5, 5), 0)
 
@@ -44,3 +44,4 @@ for x in range(0, wt):
 cv2.imwrite('pics/result.jpg', new_image)
 cv2.imshow('result', new_image)
 cv2.waitKey(0)
+

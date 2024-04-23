@@ -4,7 +4,7 @@ import numpy as np
 logo_urban = np.zeros((500, 500, 3), dtype='uint8')
 
 logo_urban[10:490, 10:490] = 255,31,133
-kernel = np.ones((100,10), np.uint8)
+kernel = np.ones((3,99), np.uint8)
 gradient = cv2.morphologyEx(logo_urban, cv2.HOUGH_GRADIENT_ALT, kernel=kernel)
 
 
@@ -27,7 +27,7 @@ cv2.line(logo_urban, (300, logo_urban.shape[0] // 4),(300, logo_urban.shape[0]//
 cv2.line(logo_urban, (350, logo_urban.shape[0] // 4),(350, logo_urban.shape[0]//2) , color=(255,0,0), thickness=5)
 
 
-
 cv2.imshow('photo', logo_urban) # показать картинку
 cv2.waitKey(0)
+
 
